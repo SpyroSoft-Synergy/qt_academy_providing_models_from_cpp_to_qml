@@ -1,3 +1,5 @@
+<center><img src="/doc/spyrosoft_color_rgb-1.png" alt="Spyrosoft" width="300" height="auto"></center>
+
 # Product Database Editor
 
 In this example, we'll create a simple database editor. We should be able to view and modify the connected database.

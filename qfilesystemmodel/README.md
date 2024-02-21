@@ -1,3 +1,5 @@
+<center><img src="/doc/spyrosoft_color_rgb-1.png" alt="Spyrosoft" width="300" height="auto"></center>
+
 # QFileSystemModel
 
 In this example we want to apply optimizations to the [FileSystem Viewer](../filesystem_viewer/README.md).
