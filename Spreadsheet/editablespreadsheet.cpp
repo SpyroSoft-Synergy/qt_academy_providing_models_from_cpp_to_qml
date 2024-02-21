@@ -15,7 +15,7 @@ bool EditableSpreadsheet::setData(const QModelIndex &index, const QVariant &valu
 
         QModelIndex topLeft = Spreadsheet::index(index.row(), index.column());
         QModelIndex bottomRight = Spreadsheet::index(index.row(), index.column());
-        emit dataChanged(topLeft, bottomRight); // Signal the data change. topLeft and bottomRight indexes refer to the same element, because only one element has changed.
+        emit dataChanged(topLeft, bottomRight, {role}); // Signal the data change. topLeft and bottomRight indexes refer to the same element, because only one element has changed.
     }
     return isOk; // Return the information whether a data was changed successfully, or not.
 }
@@ -36,7 +36,7 @@ bool EditableSpreadsheet::insertRows(int row, int count, const QModelIndex &pare
         return false; // Don't insert any more rows if there are already 9.
     }
 
-    beginInsertRows(parent, row, rows + count); // Signal the start of row manipulation.
+    beginInsertRows(parent, row, row + count); // Signal the start of row manipulation.
     rows += count; // Increment the number of rows.
     endInsertRows(); // Signal the end of row manipulation.
     return true;

@@ -59,7 +59,7 @@ ApplicationWindow {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
 
-                text: displayText
+                text: display
                 verticalAlignment: Text.AlignVCenter
                 Component.onCompleted: selectAll()
 
@@ -72,13 +72,13 @@ ApplicationWindow {
 
     footer: Row {
         Button {
-            text: "Delete Last Row"
+            text: "Hide Last Row"
             onClicked: {
                 Spreadsheet.removeRows(tableView.rows - 1, 1);
             }
         }
         Button {
-            text: "Insert Row At The Bottom"
+            text: "Show Row At The Bottom"
             onClicked: {
                 Spreadsheet.insertRows(tableView.rows, 1);
             }
