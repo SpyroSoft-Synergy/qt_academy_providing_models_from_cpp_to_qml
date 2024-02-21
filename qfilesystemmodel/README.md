@@ -1,4 +1,4 @@
-<center><img src="/doc/spyrosoft_color_rgb-1.png" alt="Spyrosoft" width="300" height="auto"></center>
+<p align="center"><img src="/doc/spyrosoft_color_rgb-1.png" alt="Spyrosoft" width="300" height="auto"></p>
 
 # QFileSystemModel
 
