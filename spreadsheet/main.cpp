@@ -31,7 +31,9 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.rootContext()->setContextProperty("Spreadsheet", &spreadsheet); // Export the model under Spreadsheet name to QML.
+    engine.setInitialProperties({
+        { "spreadsheet", QVariant::fromValue(&spreadsheet) }, // Export the model under spreadsheet name to QML.
+    });
     engine.loadFromModule("spreadsheet", "Main");
 
     return app.exec();

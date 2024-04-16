@@ -2,10 +2,13 @@ import QtQuick
 import QtQuick.Controls
 
 ApplicationWindow {
+    id: root
     width: 640
     height: 480
     visible: true
     title: qsTr("Spreadsheet")
+
+    property var spreadsheet
 
     HorizontalHeaderView {
         id: horizontalHeader
@@ -36,7 +39,7 @@ ApplicationWindow {
 
         selectionModel: ItemSelectionModel {}
 
-        model: Spreadsheet
+        model: root.spreadsheet
 
         delegate: Rectangle {
             implicitWidth: txt.implicitWidth

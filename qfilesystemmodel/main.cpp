@@ -17,7 +17,9 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.rootContext()->setContextProperty("FSModel", &model); // Export the model under FSModel name to QML.
+    engine.setInitialProperties({
+        { "fsModel", QVariant::fromValue(&model) }, // Export the model under fsModel name to QML.
+    });
     engine.loadFromModule("qfilesystemmodel", "Main");
 
     return app.exec();

@@ -28,7 +28,9 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.rootContext()->setContextProperty("ToDoList", &list); // Export the model under ToDoList name to QML.
+    engine.setInitialProperties({
+        { "todoList", QVariant::fromValue(&list) }, // Export the model under todoList name to QML.
+    });
     engine.loadFromModule("todolist", "Main");
 
     return app.exec();

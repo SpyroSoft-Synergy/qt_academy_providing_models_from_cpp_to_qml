@@ -31,7 +31,9 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.rootContext()->setContextProperty("SQLModel", &model); // Export the model under SQLModel name to QML.
+    engine.setInitialProperties({
+        { "sqlModel", QVariant::fromValue(&model) }, // Export the model under sqlModel name to QML.
+    });
     engine.loadFromModule("sqlmodel", "Main");
 
     return app.exec();

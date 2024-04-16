@@ -1,10 +1,13 @@
 import QtQuick
 
 Window {
+    id: root
     width: 640
     height: 480
     visible: true
     title: qsTr("ToDo List")
+
+    property var todoList
 
     ListView {
         anchors.fill: parent
@@ -12,7 +15,7 @@ Window {
 
         spacing: 3
 
-        model: ToDoList
+        model: root.todoList
 
         delegate: Rectangle {
             implicitHeight: 32

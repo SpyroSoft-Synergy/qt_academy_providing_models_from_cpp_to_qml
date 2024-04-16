@@ -2,10 +2,13 @@ import QtQuick
 import QtQuick.Controls
 
 Window {
+    id: root
     width: 640
     height: 480
     visible: true
     title: qsTr("Filesystem Viewer")
+
+    property var fsModel
 
     TreeView {
         anchors.fill: parent
@@ -13,7 +16,7 @@ Window {
 
         selectionModel: ItemSelectionModel {}
 
-        model: FSModel
+        model: root.fsModel
 
         delegate: Item {
             readonly property real indentation: 20
